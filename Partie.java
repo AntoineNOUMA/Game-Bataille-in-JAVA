@@ -33,6 +33,11 @@ public class Partie {
 	public HashSet<Joueur> listeJoueur;
 
 
+	public Partie (int nbJoueur,int tailleJeuCarte,int nbJeuCarte){
+		this.nbJoueur=nbJoueur;
+		this.tailleJeuCarte=tailleJeuCarte;
+		this.nbJeuCarte=nbJeuCarte;
+	}
 
 
 	/**
@@ -40,8 +45,9 @@ public class Partie {
 	 * @param tailleJeuCarte 
 	 * @param nbJeuCarte
 	 */
-	public void initialiseJeu(void nbJoueur, void tailleJeuCarte, void nbJeuCarte) {
+	public static initialiseJeu(int nbJoueur, int tailleJeuCarte, int nbJeuCarte) {
 		// TODO implement here
+		Scanner sc=new Scanner
 	}
 
 	/**
