@@ -39,7 +39,7 @@ public class Carte {
 	/**
 	 * 
 	 */
-	public void getNumero() {
+	public int getNumero() {
 		// TODO implement here
 	}
 
