@@ -15,46 +15,31 @@ public class Carte {
 	/**
 	 * 
 	 */
-	public char type;
+	public int hauteur;
 
 	/**
 	 * 
 	 */
-	public char symbole;
+	public String nomFichier;
 
 	/**
 	 * 
 	 */
-	public int numero;
+	public Char couleur;
 
 
 
 	/**
 	 * 
 	 */
-	public void getType() {
+	public int getHauteur() {
 		// TODO implement here
+		return this.hauteur;
 	}
 
 	/**
 	 * 
 	 */
-	public int getNumero() {
+	public char getCouleur() {
 		// TODO implement here
 	}
-
-	/**
-	 * 
-	 */
-	public void getSymbol() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void toString() {
-		// TODO implement here
-	}
-
-}
