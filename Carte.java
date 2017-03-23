@@ -7,28 +7,35 @@ import java.util.*;
 public class Carte {
 
 	/**
+	 * 
+	 */
+	private int hauteur;
+
+	/**
+	 * 
+	 */
+	private String nomFichier;
+
+	/**
+	 * 
+	 */
+	private char couleur;
+
+	/**
+	 * 
+	 */
+	private char symbole;
+	
+	
+	/**
 	 * Default constructor
 	 */
-	public Carte() {
+	public Carte(char s, char c) {
+		this.symbole=s;
+		this.couleur=c;
 	}
-
-	/**
-	 * 
-	 */
-	public int hauteur;
-
-	/**
-	 * 
-	 */
-	public String nomFichier;
-
-	/**
-	 * 
-	 */
-	public Char couleur;
-
-
-
+	
+	
 	/**
 	 * 
 	 */
@@ -42,4 +49,23 @@ public class Carte {
 	 */
 	public char getCouleur() {
 		// TODO implement here
+		return this.couleur;
 	}
+	
+	/**
+	 * 
+	 */
+	public String getNomFichier() {
+		// TODO implement here
+		return this.nomFichier;
+	}
+	
+	/**
+	 * 
+	 */
+	 public String toString(){
+ 		String s;
+ 		s=this.symbole+this.couleur;
+ 		return s;
+ 	}
+}
