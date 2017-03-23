@@ -45,9 +45,14 @@ public class Partie {
 	 * @param tailleJeuCarte 
 	 * @param nbJeuCarte
 	 */
-	public static initialiseJeu(int nbJoueur, int tailleJeuCarte, int nbJeuCarte) {
+	public static initialiseJeu() {
 		// TODO implement here
-		Scanner sc=new Scanner
+		Scanner sc=new Scanner(System.in);
+		int nbJoueur=sc.nextInt();
+		int tailleJeuCarte=sc.nextInt();
+		int nbJeuCarte=sc.nextInt();
+		sc.close();
+
 	}
 
 	/**
