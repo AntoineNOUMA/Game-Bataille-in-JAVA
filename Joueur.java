@@ -44,4 +44,11 @@ public class Joueur {
 		// TODO implement here
 	}
 
+	/**
+	 * 
+	 */
+	public void poserCarte() {
+		// TODO implement here
+	}
+
 }

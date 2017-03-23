@@ -15,17 +15,17 @@ public class Carte {
 	/**
 	 * 
 	 */
-	public char type;
+	public int hauteur;
 
 	/**
 	 * 
 	 */
-	public char symbole;
+	public String nomFichier;
 
 	/**
 	 * 
 	 */
-	public int numero;
+	public Char couleur;
 
 
 
@@ -39,7 +39,7 @@ public class Carte {
 	/**
 	 * 
 	 */
-	public void getNumero() {
+	public int getNumero() {
 		// TODO implement here
 	}
 
