@@ -4,39 +4,39 @@ import java.util.*;
 /**
  * 
  */
-public class Main {
+public class PlateauIndividuel {
 
 	/**
 	 * Default constructor
 	 */
-	public Main() {
+	public PlateauIndividuel() {
 	}
 
 	/**
 	 * 
 	 */
-	public Deque<Carte> lotDeCarte;
+	public HashMap bataille;
+
+	/**
+	 * 
+	 */
+	public HashMap levee;
+
+
 
 
 
 	/**
 	 * 
 	 */
-	public void recupererCarte() {
+	public void bataille() {
 		// TODO implement here
 	}
 
 	/**
 	 * 
 	 */
-	public void mainVide() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void battreMain() {
+	public void preparationBataille() {
 		// TODO implement here
 	}
 
