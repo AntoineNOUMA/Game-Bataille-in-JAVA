@@ -15,11 +15,6 @@ public class Jeu de Cartes {
 	/**
 	 * 
 	 */
-	public int nbCartes;
-
-	/**
-	 * 
-	 */
 	public HashSet<Carte> paquet;
 
 

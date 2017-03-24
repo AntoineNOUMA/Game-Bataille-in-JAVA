@@ -22,6 +22,7 @@ public class Main {
 	/**
 	 * 
 	 */
+
 	public void mainVide() {
 		// TODO implement here
 	}
