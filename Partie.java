@@ -45,13 +45,28 @@ public class Partie {
 	 * @param tailleJeuCarte 
 	 * @param nbJeuCarte
 	 */
-	public static int[] initialiseJeu() {
+	public static Partie initialiseJeu() {
 		// TODO implement here
 		Scanner sc=new Scanner(System.in);
+		System.out.println("Entrer le nombre de joueur de la partie !");
 		int nbJoueur=sc.nextInt();
-		int tailleJeuCarte=sc.nextInt();
+		
+		System.out.println("Choisir la taille du jeu de Carte !\n 0 : 32 cartes, 1 : 52 cartes");
+		int choixTailleJeuCarte=sc.nextInt();
+		while(choixTailleJeuCarte!=0 || choixTailleJeuCarte!=1){
+			choixTailleJeuCarte=sc.nextInt();
+		}
+		
+		if (choixTailleJeuCarte==1){
+			
+			int tailleJeuCarte=52;
+		}
+		
 		int nbJeuCarte=sc.nextInt();
 		sc.close();
+		
+		return new Partie(nbJoueur,tailleJeuCarte,nbJeuCarte);
+		
 
 	}
 
