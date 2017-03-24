@@ -40,10 +40,16 @@ public class Carte {
 	 * @param s Symbole de la carte
 	 * @param c Couleur de la carte
 	 */
-	public Carte(String s, char c){
+	public Carte(String s, char c)throws java.lang.Exception {
+		if(!Carte.couleurValide(c))
+		{
+			Exception e = new Exception("Erreur de couleur");
+			throw e;
+		}
 			this.symbole=s;
 			this.couleur=c;
 	}
+	
 	
 	
 
