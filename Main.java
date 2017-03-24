@@ -22,13 +22,7 @@ public class Main {
 	/**
 	 * 
 	 */
-	public void recupererCarte() {
-		// TODO implement here
-	}
 
-	/**
-	 * 
-	 */
 	public void mainVide() {
 		// TODO implement here
 	}

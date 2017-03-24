@@ -29,6 +29,20 @@ public class Joueur {
 
 
 
+/**
+	 * 
+	 */
+	public void poserCarte() {
+		// TODO implement here
+	}
+
+	/**
+	 * 
+	 */
+	public void recupererCarte() {
+		// TODO implement here
+	}
+
 
 	/**
 	 * 
