@@ -1,27 +1,19 @@
-
 import java.util.*;
 
-/**
- * 
- */
-public class PlateauIndividuel {
+public class PlateauIndividuel 
+{
 
-	/**
-	 * Default constructor
-	 */
-	public PlateauIndividuel() {
+	private Carte cartePosee;
+	
+	private HashMap cartesRetournees;
+
+	/*Constructeur*/
+	public PlateauIndividuel() 
+	{
+		
 	}
 
-	/**
-	 * 
-	 */
-	public HashMap bataille;
-
-	/**
-	 * 
-	 */
-	public HashMap levee;
-
+	
 
 
 

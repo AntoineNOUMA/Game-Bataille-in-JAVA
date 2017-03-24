@@ -7,16 +7,39 @@ public class Partie
 
 	public HashSet<Joueur> listeJoueur;
 
-	/**
-	 * Default constructor
-	 */
+	/*Default constructor*/
 	public Partie (int nbJoueur, int tailleJeuCarte, int nbJeuCarte)
 	{
 		this.nbJoueur=nbJoueur;
 		this.tailleJeuCarte=tailleJeuCarte;
 		this.nbJeuCarte=nbJeuCarte;
+		//Créer tous les joueurs et le plateau et le jeu de carte
 	}
 
+	public HashSet<Joueur> getListeJoueur()
+	{
+		return this.listeJoueur;
+	}
+	
+	/**/
+	public void removeJoueur(int idJoueur)
+	{
+		for(Joueur j : this.getListeJoueur())
+		{
+			if(j.getIdJoueur()==idJoueur)
+			{
+				ListIterator<Joueur> ite = getListeJoueur().listIterator();
+				while(ite.hasNext())
+				{
+					Joueur k = ite.next();
+					if(k.getIdJoueur()==idJoueur)
+					{
+						ite.remove();
+					}
+				}
+			}
+		}
+	}
 
 	/**
 	 * @param nbJoueur 
@@ -28,8 +51,8 @@ public class Partie
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Entrer le nombre de joueur de la partie !");
 		int nbJoueur=sc.nextInt();
-		
 		System.out.println("Choisir la taille du jeu de Carte !\n 0 : 32 cartes, 1 : 52 cartes");
+		
 		int choixTailleJeuCarte=sc.nextInt();
 		
 		while(choixTailleJeuCarte!=0 || choixTailleJeuCarte!=1)
@@ -41,7 +64,6 @@ public class Partie
 
 		if (choixTailleJeuCarte==1)
 		{
-			
 			tailleJeuCarte=52;
 		}
 		

@@ -1,68 +1,49 @@
-
 import java.util.*;
 
-/**
- * 
- */
-public class Joueur {
+public class Joueur 
+{
+	private String pseudo;
 
-	/**
-	 * Default constructor
-	 */
-	public Joueur() {
+	private int idJoueur;
+
+	private Main main;
+	
+	/*Constructeur*/
+	public Joueur(String pseudo, int idJoueur, Main main) 
+	{
+		this.pseudo=pseudo;
+		this.idJoueur=idJoueur;
+		this.main=main;
 	}
 
-	/**
-	 * 
-	 */
-	public String pseudo;
-
-	/**
-	 * 
-	 */
-	public int idJoueur;
-
-	/**
-	 * 
-	 */
-	public Main maMain;
-
-
-
-/**
-	 * 
-	 */
-	public void poserCarte() {
+	/*Getters*/
+	public int getIdJoueur()
+	{
+		return this.idJoueur;
+	}
+	
+	
+	/*Méthodes*/
+	public void poserCarte() 
+	{
 		// TODO implement here
 	}
 
-	/**
-	 * 
-	 */
-	public void recupererCarte() {
+	
+	public void recupererCarte() 
+	{
 		// TODO implement here
 	}
 
 
-	/**
-	 * 
-	 */
-	public void partiePerdue() {
-		// TODO implement here
+	public void partiePerdue() 
+	{
+		if(main.mainVide())
+		System.out.println("Vous avez perdu !");
 	}
 
-	/**
-	 * 
-	 */
-	public void partieGagne() {
+	public void partieGagne() 
+	{
 		// TODO implement here
 	}
-
-	/**
-	 * 
-	 */
-	public void poserCarte() {
-		// TODO implement here
-	}
-
 }

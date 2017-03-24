@@ -23,7 +23,8 @@ public class Main {
 	 * 
 	 */
 
-	public void mainVide() {
+	public boolean mainVide() 
+	{
 		// TODO implement here
 	}
 

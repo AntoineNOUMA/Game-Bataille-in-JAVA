@@ -1,48 +1,29 @@
-
 import java.util.*;
 
-/**
- * 
- */
-public class Plateau {
+public class Plateau 
+{
+	private HashMap bataille;
 
-	/**
-	 * Default constructor
-	 */
-	public Plateau() {
+	private HashMap levee;
+	
+	/*Constructeur*/
+	public Plateau() 
+	{
+		
 	}
 
-	/**
-	 * 
-	 */
-	public HashMap bataille;
 
-	/**
-	 * 
-	 */
-	public HashMap levee;
-
-
-
-
-
-	/**
-	 * 
-	 */
-	public void bataille() {
+	
+	public void bataille() 
+	{
 		// TODO implement here
 	}
 
-	/**
-	 * 
-	 */
-	public void preparationBataille() {
+	public void preparationBataille() 
+	{
 		// TODO implement here
 	}
 
-	/**
-	 * 
-	 */
 	public void compareCarte() {
 		// TODO implement here
 	}
