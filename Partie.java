@@ -45,7 +45,7 @@ public class Partie {
 	 * @param tailleJeuCarte 
 	 * @param nbJeuCarte
 	 */
-	public static initialiseJeu() {
+	public static int[] initialiseJeu() {
 		// TODO implement here
 		Scanner sc=new Scanner(System.in);
 		int nbJoueur=sc.nextInt();
