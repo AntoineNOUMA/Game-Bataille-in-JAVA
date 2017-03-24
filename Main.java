@@ -22,20 +22,6 @@ public class Main {
 	/**
 	 * 
 	 */
-	public void poserCarte() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
-	public void recupererCarte() {
-		// TODO implement here
-	}
-
-	/**
-	 * 
-	 */
 	public void mainVide() {
 		// TODO implement here
 	}
