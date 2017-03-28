@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 
  */
-public class Carte {
+public class Carte implements Comparable<Carte>{
 	
 	
 /**
@@ -131,5 +131,12 @@ public class Carte {
  		}
  		return false;
  	}
+	
+ 	@Override
+	public int compareTo(Carte c) {
+ 		if(this.hauteur < c.getHauteur()) return -1;
+		if(this.hauteur == c.getHauteur()) return 0;
+		return 1;
+	}
  	
 }
