@@ -30,8 +30,12 @@ public class Plateau
 		// TODO implement here
 	}
 
-	public void compareCarte() {
-		// TODO implement here
+	public int compareCarte(Carte c1, Carte c2) {
+		if(c1.compareTo(c2)==0)
+		{
+			return 0;
+		}
+		return 1;
 	}
 
 }
