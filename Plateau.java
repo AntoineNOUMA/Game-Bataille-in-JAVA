@@ -2,14 +2,20 @@ import java.util.*;
 
 public class Plateau 
 {
-	private HashMap bataille;
+	/**
+	 * Liste des cartes par joueurs dans une bataille
+	 */
+	public HashMap<Joueur, Carte> bataille;
 
-	private HashMap levee;
+	/**
+	 * Liste des cartes retournées à un joueur
+	 */
+	public HashMap<Joueur, Carte> levee;
 	
-	/*Constructeur*/
-	public Plateau() 
-	{
-		
+	/**
+	 * 
+	 */
+	public Plateau() {
 	}
 
 
