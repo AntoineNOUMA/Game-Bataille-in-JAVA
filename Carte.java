@@ -66,13 +66,13 @@ public class Carte {
 		
 			switch (this.symbole)
 			{
-			case "J":
+			case "V":
 			this.hauteur=11;
 			break;
-			case "Q":
+			case "D":
 			this.hauteur=12;
 			break;
-			case "K":
+			case "R":
 			this.hauteur=13;
 			break;
 			case "A":
