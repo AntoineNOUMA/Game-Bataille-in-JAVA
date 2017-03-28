@@ -24,24 +24,36 @@ public class Joueur
 	
 	
 	/*Méthodes*/
-	public void poserCarte() 
+
+	/**
+	 * @return la carte enlever de la main
+	 */
+	public Carte poserCarte()
 	{
-		// TODO implement here
+		return this.main.lotDeCarte.pop();
 	}
 
+	/**
+	 * @param a HashSet de carte remis dans la main
+	 */
+	public void recupererCartes(HashSet<Carte> a){
+		for(Carte c: a){
+			this.main.lotDeCarte.push(c);
+		}
+	}
+
+
+	/**
+	 * @return true si la main du joueur est vide
+	 */
 	
-	public void recupererCarte() 
-	{
-		// TODO implement here
+	public boolean partiePerdue(){
+		if(main.mainVide()){
+			System.out.println("Vous avez perdu !");
+			return true;
+		}
+		return false;
 	}
-
-
-	public void partiePerdue() 
-	{
-		if(main.mainVide())
-		System.out.println("Vous avez perdu !");
-	}
-
 	public void partieGagne() 
 	{
 		// TODO implement here
