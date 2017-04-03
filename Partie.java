@@ -1,88 +1,102 @@
 import java.util.*;
 
-public class Partie 
-{
-
-	public int nbJoueur, tailleJeuCarte, nbJeuCarte;
-
+/**
+*
+*/
+public class Partie {
+	
+	/**
+	* Default constructor
+	*/
+	public Partie() {
+		}
+	
+	/**
+	*
+	*/
+	public int nbJoueur;
+	
+	/**
+	*
+	*/
+	public int tailleJeuCarte;
+	
+	/**
+	*
+	*/
+	public int nbJeuCarte;
+	
+	/**
+	*
+	*/
 	public HashSet<Joueur> listeJoueur;
-
-	/*Default constructor*/
-	public Partie (int nbJoueur, int tailleJeuCarte, int nbJeuCarte)
-	{
+	
+	
+	public Partie (int nbJoueur,int tailleJeuCarte,int nbJeuCarte){
 		this.nbJoueur=nbJoueur;
 		this.tailleJeuCarte=tailleJeuCarte;
 		this.nbJeuCarte=nbJeuCarte;
-		//Créer tous les joueurs et le plateau et le jeu de carte
-	}
-
-	public HashSet<Joueur> getListeJoueur()
-	{
-		return this.listeJoueur;
-	}
-	
-	/**/
-	public void removeJoueur(int idJoueur)
-	{
-		for(Joueur j : this.getListeJoueur())
-		{
-			if(j.getIdJoueur()==idJoueur)
-			{
-				ListIterator<Joueur> ite = getListeJoueur().listIterator();
-				while(ite.hasNext())
-				{
-					Joueur k = ite.next();
-					if(k.getIdJoueur()==idJoueur)
-					{
-						ite.remove();
-					}
-				}
-			}
+		this.listeJoueur=new HashSet<Joueur>();
 		}
-	}
-
 	/**
-	 * @param nbJoueur 
-	 * @param tailleJeuCarte 
-	 * @param nbJeuCarte
-	 */
-	public static Partie initialiseJeu() 
-	{
+	*
+	*/
+	
+	public String toString(){
+		String s=new String("Les Joueurs suivants sont en jeu : \n");
+		for (Joueur j : listeJoueur){
+			s+=j+"\n";
+			}
+		return s;
+		}
+	
+	/**
+	* @param nbJoueur
+	* @param tailleJeuCarte
+	* @param nbJeuCarte
+	*/
+	public static Partie initialiseJeu() {
+		// TODO implement here
+		System.out.println("Saisir Nombres de Joueurs : ");
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Entrer le nombre de joueur de la partie !");
 		int nbJoueur=sc.nextInt();
-		System.out.println("Choisir la taille du jeu de Carte !\n 0 : 32 cartes, 1 : 52 cartes");
-		
-		int choixTailleJeuCarte=sc.nextInt();
-		
-		while(choixTailleJeuCarte!=0 || choixTailleJeuCarte!=1)
-		{
-			choixTailleJeuCarte=sc.nextInt();
-		}
-		
-		int tailleJeuCarte;
-
-		if (choixTailleJeuCarte==1)
-		{
-			tailleJeuCarte=52;
-		}
-		
-		if(choixTailleJeuCarte==0)
-		{
-			tailleJeuCarte=32;
-		}
-		
-		System.out.println("Choisir le nombre de jeu de Carte !\n 0");
+		System.out.println("Saisir Taille du Jeu de Carte(s) : ");
+		int tailleJeuCarte=sc.nextInt();
+		System.out.println("Saisir le nombre de Jeu de Carte(s) : ");
 		int nbJeuCarte=sc.nextInt();
+		
+		Partie p= new Partie(nbJoueur,tailleJeuCarte,nbJeuCarte);
+		JeudeCartes jeuCartes = new JeudeCartes();
+		jeuCartes.creationPaquet(tailleJeuCarte, nbJeuCarte);
+		
+		for (int i=0; i<nbJoueur;i++){
+			System.out.println("Saisir le nom du Joueur "+i+" : ");
+			sc=new Scanner(System.in);
+			String nomJoueur=sc.next();
+			Joueur joueur=new Joueur(nomJoueur,i);
+			jeuCartes.distribuerCarte(joueur,nbJoueur);
+			p.listeJoueur.add(joueur);
+			
+			}
 		sc.close();
 		
-		return new Partie(nbJoueur,tailleJeuCarte,nbJeuCarte);
-	}
-
-	
-	public void finPartie() 
-	{
+		return p;
+		}
+	/**
+	*
+	*/
+	public void finPartie() {
 		// TODO implement here
+		}
+	
+	
+	public int getTailleJeuCarte() {
+		return tailleJeuCarte;
+		}
+	
+	public static void main (String[] args){
+		Partie p;
+		p=Partie.initialiseJeu();
+		System.out.println(p);
+		}
 	}
-
-}
