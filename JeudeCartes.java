@@ -71,4 +71,8 @@ public class JeudeCartes {
 	public String toString(){
 		return this.paquet.toString();
 		}
+<<<<<<< HEAD
 }
+=======
+	}
+>>>>>>> branch 'master' of https://github.com:443/AntoineNOUMA/Game-Bataille-in-JAVA.git

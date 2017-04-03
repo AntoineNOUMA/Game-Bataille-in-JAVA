@@ -1,61 +1,73 @@
 import java.util.*;
 
-public class Joueur 
-{
-	private String pseudo;
+/**
 
-	private int idJoueur;
+import java.util.*;
 
-	private Main main;
+/**
+*
+*/
+public class Joueur {
 	
+	private String pseudo;
+	private int idJoueur;
+	private Main main;
 	/*Constructeur*/
-	public Joueur(String pseudo, int idJoueur, Main main) 
+	public Joueur(String pseudo, int idJoueur, Main main)
 	{
-		this.pseudo=pseudo;
+		this.setPseudo(pseudo);
 		this.idJoueur=idJoueur;
 		this.main=main;
-	}
-
+		}
 	/*Getters*/
 	public int getIdJoueur()
 	{
 		return this.idJoueur;
-	}
+		}
 	
-	
-	/*Méthodes*/
-
 	/**
-	 * @return la carte enlever de la main
-	 */
+	* @return la carte enlevée de la main
+	*/
 	public Carte poserCarte()
 	{
 		return this.main.lotDeCarte.pop();
-	}
-
+		}
+	
 	/**
-	 * @param a HashSet de carte remis dans la main
-	 */
+	* @param a HashSet de carte remis dans la main
+	*/
 	public void recupererCartes(HashSet<Carte> a){
 		for(Carte c: a){
 			this.main.lotDeCarte.push(c);
+			}
 		}
-	}
-
-
 	/**
-	 * @return true si la main du joueur est vide
-	 */
+	* @return true si la main du joueur est vide
+	*/
 	
 	public boolean partiePerdue(){
 		if(main.mainVide()){
 			System.out.println("Vous avez perdu !");
 			return true;
-		}
+			}
 		return false;
-	}
-	public void partieGagne() 
+		}
+	
+	public void partieGagne()
 	{
 		// TODO implement here
+		}
+	public String getPseudo() {
+		return pseudo;
+		}
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
+		}
+	
+	public String toString(){
+		String s = main.toString();
+		s+= " Nom : " + this.pseudo;
+		return s;
+		}
+	
 	}
-}
