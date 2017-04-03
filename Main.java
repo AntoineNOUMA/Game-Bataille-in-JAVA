@@ -11,15 +11,17 @@ public class Main {
 	*
 	* Représente le lot de carte contenu dans une main
 	*/
-	public Deque<Carte> lotDeCarte;
+	public ArrayDeque<Carte> lotDeCarte;
 	
 	
-	
+	public Main(){
+		this.lotDeCarte=new ArrayDeque<Carte>();
+		}
 	/**
 	* @param c Collection de cartes provenant du jeu de carte
 	*/
 	public Main(HashSet<Carte> c) {
-		this.lotDeCarte = new LinkedList<Carte>();
+		this.lotDeCarte = new ArrayDeque<Carte>();
 		for(Carte p : c ){
 			this.lotDeCarte.add(p);
 			}
