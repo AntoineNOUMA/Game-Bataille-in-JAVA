@@ -1,10 +1,6 @@
 import java.util.*;
 
 /**
-
-import java.util.*;
-
-/**
 *
 */
 public class Joueur {
@@ -12,14 +8,29 @@ public class Joueur {
 	private String pseudo;
 	private int idJoueur;
 	private Main main;
-	/*Constructeur*/
+	
+	/**
+	* Constructeur Classe Joueur
+	* */
 	public Joueur(String pseudo, int idJoueur, Main main)
 	{
 		this.setPseudo(pseudo);
 		this.idJoueur=idJoueur;
 		this.main=main;
 		}
-	/*Getters*/
+	
+	/**
+	* Constructeur Classe Joueur
+	* */
+	public Joueur(String pseudo, int idJoueur)
+	{
+		this.setPseudo(pseudo);
+		this.idJoueur=idJoueur;
+		this.main=new Main();
+		}
+	/**
+	* Getters
+	* */
 	public int getIdJoueur()
 	{
 		return this.idJoueur;
