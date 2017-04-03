@@ -22,8 +22,8 @@ public class JeudeCartes {
 	/**
 	* @param numJoueur
 	*/
-	public void distribuerCarte(Joueur joueur, Partie p) {
-		int i = this.paquet.size()/p.nbJoueur;
+	public void distribuerCarte(Joueur joueur, int nbJoueur) {
+		int i = this.paquet.size()/nbJoueur;
 		this.battrePaquet();
 		HashSet<Carte> h = new HashSet<Carte>();
 		for(int j = 0; j<i; j++){
@@ -72,4 +72,3 @@ public class JeudeCartes {
 		return this.paquet.toString();
 		}
 	}
-}
