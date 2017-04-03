@@ -1,4 +1,3 @@
-test2
 import java.util.*;
 
 /**
