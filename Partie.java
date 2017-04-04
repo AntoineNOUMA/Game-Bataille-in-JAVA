@@ -78,6 +78,7 @@ public class Partie {
 			p.listeJoueur.add(joueur);
 			
 			}
+		System.out.println(jeuCartes);
 		sc.close();
 		
 		return p;
