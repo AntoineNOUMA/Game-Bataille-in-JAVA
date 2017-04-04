@@ -5,38 +5,39 @@ import java.util.*;
 */
 public class Partie {
 	
-	/**
-	* Default constructor
-	*/
-	public Partie() {
-		}
 	
 	/**
 	*
 	*/
-	public int nbJoueur;
+	private int nbJoueur;
 	
 	/**
 	*
 	*/
-	public int tailleJeuCarte;
+	private int tailleJeuCarte;
 	
 	/**
 	*
 	*/
-	public int nbJeuCarte;
+	private int nbJeuCarte;
 	
 	/**
 	*
 	*/
-	public HashSet<Joueur> listeJoueur;
+	private HashSet<Joueur> listeJoueur;
 	
+	/**
+	 * 
+	 */
+	
+	private Plateau PlateauPartie;
 	
 	public Partie (int nbJoueur,int tailleJeuCarte,int nbJeuCarte){
 		this.nbJoueur=nbJoueur;
 		this.tailleJeuCarte=tailleJeuCarte;
 		this.nbJeuCarte=nbJeuCarte;
 		this.listeJoueur=new HashSet<Joueur>();
+		this.PlateauPartie=new Plateau();
 		}
 	/**
 	*
@@ -90,7 +91,9 @@ public class Partie {
 		// TODO implement here
 		}
 	
-	
+	public HashSet<Joueur> getListeJoueur(){
+		return this.listeJoueur;
+	}
 	public int getTailleJeuCarte() {
 		return tailleJeuCarte;
 		}
