@@ -1,7 +1,8 @@
+
 /**
 *
 */
-public class Carte implements Comparable<Carte>{
+public class Carte{
 	
 	
 	/**
@@ -136,9 +137,9 @@ public class Carte implements Comparable<Carte>{
 		return false;
 		}
 	
-	public int compareTo(Carte c) {
-		if(this.hauteur < c.getHauteur()) return -1;
-		if(this.hauteur == c.getHauteur()) return 0;
+	public static int compareTo(Carte c1, Carte c2) {
+		if(c1.hauteur < c2.getHauteur()) return -1;
+		if(c1.hauteur == c2.getHauteur()) return 0;
 		return 1;
 		}
 	
