@@ -47,8 +47,13 @@ public class Carte{
 		this.hauteur=h;
 		this.couleur=c;
 		}
-	
-	
+	/**
+	 * Créer une carte nulle
+	 */
+	public Carte(){
+		this.hauteur=0;
+		this.couleur=0;
+	}
 	
 	/**
 	* @return symbole - Renvoi le symbole de la carte

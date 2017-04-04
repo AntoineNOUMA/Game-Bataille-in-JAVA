@@ -1,34 +1,36 @@
+
 import java.util.*;
 
 /**
 *
 */
 public class PlateauIndividuel {
-	private Stack<Carte> pile;
-	private HashSet<Carte> tas;
+	
+	/**
+	 * Contient la carte posée à chaque tour par chaque joueur ou dans le cas d'une bataille
+	 */
+	private Carte cartePose;
+	
+	/**
+	 * Contient la liste de cartes gagné par le joueur lors d'une bataille
+	 */
+	private HashSet<Carte> cartesBataille;
 	
 	public PlateauIndividuel(){
-		setPile(new Stack<Carte>());
-		setTas(new HashSet<Carte>());
+		this.cartePose=new Carte();
+		this.cartesBataille=new HashSet<Carte>();
 		}
 	
-	public Carte getPile() {
-		return this.pile.pop();
+	public Carte getCartePose() {
+		return this.cartePose;
 		}
 	
-	public void setPile(Stack<Carte> pile) {
-		this.pile = pile;
+	public void setCartePose(Carte c ) {
+		this.cartePose = c;
 		}
 	
-	public HashSet<Carte> getTas() {
-		return tas;
+	public HashSet<Carte> getCartesBataille() {
+		return this.cartesBataille;
 		}
 	
-	public void setTas(HashSet<Carte> tas) {
-		this.tas = tas;
-		}
-	
-	public void ajouterCarte(Carte c){
-		this.pile.add(c);
-		}
 	}

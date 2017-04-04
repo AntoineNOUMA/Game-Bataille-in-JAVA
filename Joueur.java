@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 /**
@@ -43,8 +44,11 @@ public class Joueur {
 	*/
 	public void poserCarte()
 	{
-		monPlateau.ajouterCarte(this.main.lotDeCarte.pop());
+		if(this.main.lotDeCarte.size()==0){
+			monPlateau.setCartePose(new Carte());
 		}
+		monPlateau.setCartePose(this.main.lotDeCarte.pop());
+	}
 	
 	/**
 	* @param a HashSet de carte remis dans la main
