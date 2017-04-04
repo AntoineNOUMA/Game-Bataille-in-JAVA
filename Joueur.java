@@ -8,6 +8,7 @@ public class Joueur {
 	private String pseudo;
 	private int idJoueur;
 	private Main main;
+	private PlateauIndividuel monPlateau;
 	
 	/**
 	* Constructeur Classe Joueur
@@ -27,6 +28,7 @@ public class Joueur {
 		this.setPseudo(pseudo);
 		this.idJoueur=idJoueur;
 		this.main=new Main();
+		this.monPlateau = new PlateauIndividuel();
 		}
 	/**
 	* Getters
@@ -39,9 +41,9 @@ public class Joueur {
 	/**
 	* @return la carte enlevée de la main
 	*/
-	public Carte poserCarte()
+	public void poserCarte()
 	{
-		return this.main.lotDeCarte.pop();
+		monPlateau.ajouterCarte(this.main.lotDeCarte.pop());
 		}
 	
 	/**
@@ -76,9 +78,12 @@ public class Joueur {
 		}
 	
 	public String toString(){
-		String s = main.toString();
-		s+= " Nom : " + this.pseudo;
+		String s = "" + this.pseudo;
+		s+= "\n" + this.main.toString();
 		return s;
 		}
 	
+	public PlateauIndividuel getMonPlateau() {
+		return this.monPlateau;
+		}
 	}
