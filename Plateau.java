@@ -3,32 +3,38 @@ import java.util.*;
 /**
 *
 */
-public class PlateauIndividuel {
-	private Stack<Carte> pile;
-	private HashSet<Carte> tas;
+public class Plateau {
 	
-	public PlateauIndividuel(){
-		setPile(new Stack<Carte>());
-		setTas(new HashSet<Carte>());
+	
+	
+	
+	/**
+	* Liste des cartes par joueurs dans une bataille
+	*/
+	private HashMap<Joueur, Carte> bataille;
+	
+	/**
+	* Liste des cartes retournées à un joueur
+	*/
+	private HashSet<Carte> levee;
+	
+	/**
+	*
+	*/
+	public Plateau() {
+		bataille=new HashMap<Joueur, Carte>();
+		levee = new HashSet<Carte>();
 		}
 	
-	public Carte getPile() {
-		return this.pile.pop();
+	public HashSet<Carte> bataille() {
+		for(int i=0; i<this.bataille.size(); i++){}
+		return levee;
+		
 		}
 	
-	public void setPile(Stack<Carte> pile) {
-		this.pile = pile;
-		}
-	
-	public HashSet<Carte> getTas() {
-		return tas;
-		}
-	
-	public void setTas(HashSet<Carte> tas) {
-		this.tas = tas;
-		}
-	
-	public void ajouterCarte(Carte c){
-		this.pile.add(c);
+	public void preparationBataille(HashSet<Joueur> players) {
+		for(Joueur j : players){
+			this.bataille.put(j, j.getMonPlateau().getPile());
+			}
 		}
 	}
