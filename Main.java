@@ -55,7 +55,7 @@ public class Main {
 	public String toString(){
 		String s;
 		int size=this.lotDeCarte.size();
-		s="La main contient " + size + "";
+		s="Sa main contient " + size + "\n" + this.lotDeCarte.toString();
 		return s;
 		}
 	
