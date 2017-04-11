@@ -141,10 +141,12 @@ public class Carte{
 			}
 		return false;
 		}
-	
-	public static int compareTo(Carte c1, Carte c2) {
-		if(c1.hauteur < c2.getHauteur()) return -1;
-		if(c1.hauteur == c2.getHauteur()) return 0;
+	/*
+	 * Méthode permettant de comparer la valeur de 2 cartes
+	 */
+	public int compareTo(Carte c) {
+		if(this.getHauteur() < c.getHauteur()) return -1;
+		if(this.getHauteur() == c.getHauteur()) return 0;
 		return 1;
 		}
 	

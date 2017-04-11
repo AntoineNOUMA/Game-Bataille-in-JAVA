@@ -28,7 +28,7 @@ public class Partie {
 	private HashSet<Joueur> listeJoueur;
 	
 	/**
-	 * 
+	 * Attribut contenant le plateau d'une partie
 	 */
 	
 	private Plateau PlateauPartie;
@@ -50,8 +50,14 @@ public class Partie {
 			s+=j+"\n";
 			}
 		return s;
-		}
-	
+	}
+	/**
+	 * GETTER permettant de retourner le plateau d'une partie 
+	 * @return le plateau de la partie
+	 */
+	public Plateau getPlateauPartie(){
+		return this.PlateauPartie;
+	}
 	/**
 	* @param nbJoueur
 	* @param tailleJeuCarte
@@ -75,23 +81,26 @@ public class Partie {
 			System.out.println("Saisir le nom du Joueur "+i+" : ");
 			sc=new Scanner(System.in);
 			String nomJoueur=sc.next();
-			Joueur joueur=new Joueur(nomJoueur,i);
+			Joueur joueur=new Joueur(nomJoueur,i); // !!! ajouter une main au joueur au constructeur de joueur !!!
 			jeuCartes.distribuerCarte(joueur,nbJoueur);
 			p.listeJoueur.add(joueur);
 			
 			}
 		System.out.println(jeuCartes);
 		sc.close();
-		
+		p.PlateauPartie=new Plateau();
 		return p;
 		}
 	/**
 	*
 	*/
-	public void finPartie() {
+	public void finPartie() { // COMPLETER LES CONDITIONS DE FIN DE PARTIE
 		// TODO implement here
-		}
+	}
 	
+	public void joueurPerdu(){ // A COMPLETER
+		
+	}
 	public HashSet<Joueur> getListeJoueur(){
 		return this.listeJoueur;
 	}

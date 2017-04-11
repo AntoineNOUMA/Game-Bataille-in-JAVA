@@ -12,7 +12,7 @@ public class Main {
 	*
 	* ReprÃ©sente le lot de carte contenu dans une main
 	*/
-	public ArrayDeque<Carte> lotDeCarte;
+	private ArrayDeque<Carte> lotDeCarte;
 	
 	
 	public Main(){
@@ -26,9 +26,15 @@ public class Main {
 		for(Carte p : c ){
 			this.lotDeCarte.add(p);
 			}
-		}
+	}
 	
-	
+	/**
+	 * GETTER permettant de récupérer les cartes dans la main d'un joueur
+	 * @return Les cartes dans la main du joueur
+	 */
+	public ArrayDeque<Carte> getLotDeCarte(){
+		return this.lotDeCarte;
+	}
 	
 	/**
 	* @return true si la main est vide
