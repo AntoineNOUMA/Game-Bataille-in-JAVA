@@ -22,6 +22,8 @@ public class Partie {
 	*/
 	private int nbJeuCarte;
 	
+	private int nbCarteTotal;
+	
 	/**
 	*
 	*/
@@ -37,6 +39,7 @@ public class Partie {
 		this.nbJoueur=nbJoueur;
 		this.tailleJeuCarte=tailleJeuCarte;
 		this.nbJeuCarte=nbJeuCarte;
+		this.nbCarteTotal=(tailleJeuCarte*4)*nbJeuCarte;
 		this.listeJoueur=new HashSet<Joueur>();
 		this.PlateauPartie=new Plateau();
 		}
@@ -57,6 +60,14 @@ public class Partie {
 	 */
 	public Plateau getPlateauPartie(){
 		return this.PlateauPartie;
+	}
+	
+	public int getNbCarteTotal(){
+		return this.nbCarteTotal;
+	}
+	
+	public int getNbJoueur(){
+		return this.nbJoueur;
 	}
 	/**
 	* @param nbJoueur
@@ -82,8 +93,9 @@ public class Partie {
 			sc=new Scanner(System.in);
 			String nomJoueur=sc.next();
 			Joueur joueur=new Joueur(nomJoueur,i); // !!! ajouter une main au joueur au constructeur de joueur !!!
-			jeuCartes.distribuerCarte(joueur,nbJoueur);
+			jeuCartes.distribuerCarte(joueur,p);
 			p.listeJoueur.add(joueur);
+			System.out.println(joueur.getMain().getLotDeCarte());
 			
 			}
 		System.out.println(jeuCartes);

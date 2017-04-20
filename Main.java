@@ -24,7 +24,7 @@ public class Main {
 	public Main(HashSet<Carte> c) {
 		this.lotDeCarte = new ArrayDeque<Carte>();
 		for(Carte p : c ){
-			this.lotDeCarte.add(p);
+			this.lotDeCarte.addLast(p);
 			}
 	}
 	

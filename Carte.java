@@ -152,21 +152,8 @@ public class Carte{
 	
 	
 	
-	public static void main (String[] args) throws java.lang.Exception
+	public static void main (String[] args)
 	{
-		Carte n = new Carte(8, 'K');
-		System.out.println(n);
-		System.out.println(n.getHauteur());
-		Carte m = new Carte(14, 'T');
-		System.out.println(m);
-		System.out.println(m.getHauteur());
-		System.out.println(n.equals(m));
-		Carte t = new Carte(13, 'K');
-		System.out.println(t);
-		System.out.println(t.getHauteur());
-		Carte x = new Carte(14, 'T');
-		System.out.println(x);
-		System.out.println(x.getHauteur());
-		System.out.println(m.equals(x));
-		}
+		
 	}
+}

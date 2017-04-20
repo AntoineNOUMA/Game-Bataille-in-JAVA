@@ -68,7 +68,10 @@ public class Joueur {
 		if(this.getMain().getLotDeCarte().size()==0){
 			monPlateau.setCartePose(new Carte());
 		}
-		monPlateau.setCartePose(this.getMain().getLotDeCarte().pop());
+		else{
+			monPlateau.setCartePose(this.getMain().getLotDeCarte().removeFirst());
+		}
+		
 	}
 	
 	/**
@@ -76,7 +79,7 @@ public class Joueur {
 	 * @param p partie en cours
 	 */
 	public void poserCarteVersLeveeAdditionne(Partie p){
-		p.getPlateauPartie().getLeveeAdditionne().add(this.getMain().getLotDeCarte().pop());
+		p.getPlateauPartie().getLeveeAdditionne().add(this.getMain().getLotDeCarte().removeFirst());
 	}
 	
 	/**
@@ -84,7 +87,7 @@ public class Joueur {
 	*/
 	public void recupererCartes(HashSet<Carte> a){
 		for(Carte c: a){
-			this.getMain().getLotDeCarte().push(c);
+			this.getMain().getLotDeCarte().addLast(c);
 			}
 		}
 	/**
@@ -93,7 +96,7 @@ public class Joueur {
 	
 	public boolean partiePerdue(){
 		if(main.mainVide()){
-			System.out.println("Vous avez perdu !");
+			System.out.println(this.pseudo + " a perdu !");
 			return true;
 			}
 		return false;
@@ -103,6 +106,7 @@ public class Joueur {
 	{
 		// TODO implement here
 		}
+	
 	public String getPseudo() {
 		return pseudo;
 		}

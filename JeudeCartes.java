@@ -22,13 +22,15 @@ public class JeudeCartes {
 	/**
 	* @param numJoueur
 	*/
-	public void distribuerCarte(Joueur joueur, int nbJoueur) {
-		int i = this.paquet.size()/nbJoueur;
+	public void distribuerCarte(Joueur joueur, Partie p) {
+		int i = p.getNbCarteTotal()/p.getNbJoueur();
 		this.battrePaquet();
 		HashSet<Carte> h = new HashSet<Carte>();
+		ListIterator<Carte> itLCartes =this.paquet.listIterator();
 		for(int j = 0; j<i; j++){
-			h.add(this.paquet.get(j));
-			}
+			h.add(itLCartes.next());
+			itLCartes.remove();
+		}
 		joueur.recupererCartes(h);
 		}
 	
@@ -51,7 +53,6 @@ public class JeudeCartes {
 			for(i=0; i<nbJeu ; i++){
 				for(j=0; j<nbCarte; j++){
 					Carte c1, c2, c3, c4;
-					
 					c1 = new Carte(j+2, 'K');
 					c2 = new Carte(j+2, 'C');
 					c3 = new Carte(j+2, 'P');
