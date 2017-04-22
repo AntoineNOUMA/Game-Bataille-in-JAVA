@@ -106,12 +106,28 @@ public class Partie {
 	/**
 	*
 	*/
-	public void finPartie() { // COMPLETER LES CONDITIONS DE FIN DE PARTIE
-		// TODO implement here
+	public boolean finPartie() { // COMPLETER LES CONDITIONS DE FIN DE PARTIE
+		if(this.getListeJoueur().size()==1){
+			for(Joueur j : this.getListeJoueur() ){
+				System.out.println("La partie est FINI ! \n Le GAGNANT est :"+j.getPseudo());
+			}
+			return true;
+		}
+		if(this.getListeJoueur().size()==0){
+			
+				System.out.println("La partie est FINI ! \n Le match est NUL.");
+				return true;
+		}
+		return false;
 	}
 	
 	public void joueurPerdu(){ // A COMPLETER
-		
+		Iterator <Joueur> itRJ= this.getListeJoueur().iterator();
+		while(itRJ.hasNext()){
+			if(itRJ.next().getMain().mainVide()){
+				itRJ.remove();
+			}
+		}
 	}
 	public HashSet<Joueur> getListeJoueur(){
 		return this.listeJoueur;
