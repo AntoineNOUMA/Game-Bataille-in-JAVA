@@ -16,7 +16,7 @@ public class Plateau {
 	private HashMap<Joueur,Carte> levee;
 	
 	/**
-	* Liste totale des cartes pos�es par l'ensemble des joueurs au cours d'un tour 
+	* Liste totale des cartes posées par l'ensemble des joueurs au cours d'un tour 
 	*/
 	private HashSet<Carte> leveeAdditionne;
 	
@@ -35,35 +35,36 @@ public class Plateau {
 	}
 	/**
 	 * Getter de la levee des carte posee pour une bataille d'un tour
-	 * @return HashMap<Joueur,Carte> Contient toute les cartes pos�es pour une bataille
+	 * @return HashMap<Joueur,Carte> Contient toute les cartes posées pour une bataille
 	 */
 	public HashMap<Joueur,Carte> getLevee(){
 		return this.levee;
 	}
 	/**
 	 * Getters de la liste de Joueur en bataille
+	 * @return HashSet<Joueur> la liste des joueurs en pleine bataille
 	 */
 	
 	public HashSet<Joueur> getListeJoueurBataille(){
 		return this.listeJoueurBataille;
 	}
 	/**
-	 * Getter de la  lev�e globale
-	 * @return HashSet <Carte> Contient toute les carte pos�es par tous les joueurs au cours d'un tour
+	 * Getter de la  levée globale
+	 * @return HashSet <Carte> Contient toute les carte posées par tous les joueurs au cours d'un tour
 	 */
 	public HashSet <Carte> getLeveeAdditionne(){
 		return this.leveeAdditionne;
 	}
 	
 	/**
-	 * Méthode permettant de déclencher une bataille : 
-	 * Recherche les cartes identiques au sein des cartes posées par chaque joueur (preparationBataille)
+	 * Méthode permettant de dęclencher une bataille : 
+	 * Recherche les cartes identiques au sein des cartes posÃ©es par chaque joueur (preparationBataille)
 	 * Ajoute les cartes identiques au sein de la liste bataille
 	 * Retire la carte du joueur de la liste preparationBataille
-	 * Une fois toute la liste parcouru, si il y a des cartes identiques nous exécutons une bataille entre ces joueurs 
-	 * Le joueurs gagnant la partie remporte toute les cartes de la bataille, elles sont directement ajouté à main
-	 * Dans tous les cas nous continuons à parcourir la liste des joueurs, vérifiant si d'autres batailles sont possible,jusqu'à épuisement complet de la liste (preparationBataille)
-	 * Les cartes restantes, n'ayant pas participé à une bataille, sont restitués aux joueurs
+	 * Une fois toute la liste parcouru, si il y a des cartes identiques nous exÃ©cutons une bataille entre ces joueurs 
+	 * Le joueurs gagnant la partie remporte toute les cartes de la bataille, elles sont directement ajoutÃ© Ã  main
+	 * Dans tous les cas nous continuons Ã  parcourir la liste des joueurs, vÃ©rifiant si d'autres batailles sont possible,jusqu'Ã  Ã©puisement complet de la liste (preparationBataille)
+	 * Les cartes restantes, n'ayant pas participÃ© Ã  une bataille, sont restituÃ©s aux joueurs
 	 */
 	
 	public void bataille(Partie p) {
@@ -74,9 +75,9 @@ public class Plateau {
 		boolean tourGagne = false;
 		
 		while(this.getListeJoueurBataille().size()>1){
-			this.preparationBataille(); //Pr�paration a la bataille, pioche une carte de la main pour la mettre sur le plateau
+			this.preparationBataille(); //Préparation a la bataille, pioche une carte de la main pour la mettre sur le plateau
 			//VERIFIER SI LITERATEUR FONCTIONNE DANS LETAT ACTUEL SINON DANS LA BOUCLE FOR REMPLACER this.levee.entrySet par une variable contenant cette liste
-			System.out.println("Pr�paration Bataille FINI !");
+			System.out.println("Préparation Bataille FINI !");
 			this.getLevee().forEach((k,v) -> System.out.println("Joueur: "+k.getPseudo()+" Carte:"+v.getHauteur()));
 			
 			/*
@@ -88,7 +89,7 @@ public class Plateau {
 				Iterator<Entry<Joueur, Carte>> itComparaison=this.levee.entrySet().iterator(); //iterateur permettant de supprimer les joueurs ayant perdu la bataille de la liste
 				while(itComparaison.hasNext()){
 					if(it.next().getValue().compareTo(itComparaison.next().getValue())==1){
-						this.leveeAdditionne.add(itComparaison.next().getValue()); //ajoute la carte du joueur � la levee globale du tour, qui sera gagne par le gagnant du tour 
+						this.leveeAdditionne.add(itComparaison.next().getValue()); //ajoute la carte du joueur à la levee globale du tour, qui sera gagne par le gagnant du tour 
 						this.removeJoueurBataille(itComparaison.next().getKey()); //supprime le joueur de la liste des joueurs encore actif ce tour
 						itComparaison.remove(); //supprime la carte de levee en cours
 						it=itComparaison;
@@ -116,7 +117,7 @@ public class Plateau {
 			}
 			*/
 			
-			System.out.println("Liste Joueur Bataille apr�s Test Filtrage Bataille : \n");
+			System.out.println("Liste Joueur Bataille après Test Filtrage Bataille : \n");
 			for(Joueur j : this.getListeJoueurBataille()){
 				System.out.println(j.getPseudo());
 			}
@@ -127,15 +128,15 @@ public class Plateau {
 				
 			}
 			
-			if(this.getLevee().size()>0){ //rajoute toute les cartes de la lev�e � la lev�e gloabale 
+			if(this.getLevee().size()>0){ //rajoute toute les cartes de la levée à la levée gloabale 
 				Iterator <Entry<Joueur,Carte>> itCarteLevee= this.getLevee().entrySet().iterator();
 				while(itCarteLevee.hasNext()){
-					this.getLeveeAdditionne().add(itCarteLevee.next().getValue()); //ajoute la carte � la lev�e globale
-					itCarteLevee.remove();// retire la carte de la lev�e de la bataille
+					this.getLeveeAdditionne().add(itCarteLevee.next().getValue()); //ajoute la carte à la levée globale
+					itCarteLevee.remove();// retire la carte de la levée de la bataille
 				}
 			}
 			
-			if(tourGagne==false){ //v�rifie quels sont les joueurs ayant des cartes �gales et pr�pare la nouvelle bataille
+			if(tourGagne==false){ //vérifie quels sont les joueurs ayant des cartes égales et prépare la nouvelle bataille
 				Iterator <Joueur> itJoueurPerdu=this.getListeJoueurBataille().iterator();
 				while(itJoueurPerdu.hasNext()){
 					Joueur j = itJoueurPerdu.next();
@@ -156,7 +157,7 @@ public class Plateau {
 		
 		if(tourGagne==true){
 			for(Joueur j : this.getListeJoueurBataille()){
-				//ajouter les cartes des leveeAdditionne au joueur gagnant en principe il n'y a plus de carte dans la levee(tous � �t� transferr� � la lev�eAdditionn�e)
+				//ajouter les cartes des leveeAdditionne au joueur gagnant en principe il n'y a plus de carte dans la levee(tous à été transferré à la levéeAdditionnée)
 				j.recupererCartes(this.getLeveeAdditionne());
 			}
 			this.getLeveeAdditionne().clear(); //supprime les cartes de la leveeAdditionne
@@ -167,7 +168,7 @@ public class Plateau {
 			System.out.println("Ce qui fait "+ j.getMain().getLotDeCarte().size()+" cartes");
 
 		}
-		//Supprimer la liste de joueur bataille (la remettre � 0), vide 
+		//Supprimer la liste de joueur bataille (la remettre à 0), vide 
 		this.getListeJoueurBataille().clear();
 		System.out.println("FIN BATAILLE");
 	}
@@ -181,14 +182,14 @@ public class Plateau {
 			if(j.getMonPlateau().getCartePose().getHauteur()!=0){ //
 				this.levee.put(j, j.getMonPlateau().getCartePose()); //transfert la carte du plateau indivduel au plateau collectif
 				//!!! PENSER A SUPPRIMER LA CARTE SI ELLE NA PAS ETE ENLEVE DAS LA METHODE poserCarte()
-				j.getMonPlateau().setCartePose(new Carte());//VERIFIER PERTINENCE !!! Une fois la carte mis dans le Plateau de la partie, la carte dans le plateau Individuel est remplacé par une carte nulle  
+				j.getMonPlateau().setCartePose(new Carte());//VERIFIER PERTINENCE !!! Une fois la carte mis dans le Plateau de la partie, la carte dans le plateau Individuel est remplacÃ© par une carte nulle  
 			}
 			
 			}
 	}
 	/**
-	 * M�thode permettant de supprimer un joueur de la liste des joueurs du tour 
-	 * @param j joueur � supprimer
+	 * Méthode permettant de supprimer un joueur de la liste des joueurs du tour 
+	 * @param j joueur à supprimer
 	 */
 	public void removeJoueurBataille(Joueur j){
 		Iterator <Joueur> ite =this.getListeJoueurBataille().iterator();
