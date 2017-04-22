@@ -2,39 +2,48 @@
 import java.util.*;
 
 /**
-*
+* Classe de gestion de partie 
 */
 public class Partie {
 	
 	
 	/**
-	*
+	* Nombre de joueurs affiliés à une partie
 	*/
 	private int nbJoueur;
 	
 	/**
-	*
+	* Taille du jeu de carte
 	*/
 	private int tailleJeuCarte;
 	
 	/**
-	*
+	* Nombre de jeu de carte dans la partie
 	*/
 	private int nbJeuCarte;
 	
+	/**
+	* Nombre de carte au totale  dans la partie
+	*/
 	private int nbCarteTotal;
 	
 	/**
-	*
+	* Liste des joueurs actifs d'une partie
 	*/
 	private HashSet<Joueur> listeJoueur;
 	
 	/**
-	 * Attribut contenant le plateau d'une partie
+	 * Plateau de la partie
 	 */
 	
 	private Plateau PlateauPartie;
 	
+	/**
+	* Constructeur
+	* @param nbJoueur : Le nombre de joueur de la partie
+	* @param tailleJeuCarte : Nombre de carte dans la partie correspondant à 1 paquet de cartes
+	* @param nbJeuCarte : Nombre de paquets de cartes pour la partie
+	*/
 	public Partie (int nbJoueur,int tailleJeuCarte,int nbJeuCarte){
 		this.nbJoueur=nbJoueur;
 		this.tailleJeuCarte=tailleJeuCarte;
@@ -129,9 +138,19 @@ public class Partie {
 			}
 		}
 	}
+	
+	/**
+	 * GETTER permettant de retourner la liste des joueurs actifs d'une partie 
+	 * @return liste de jouru
+	 */
 	public HashSet<Joueur> getListeJoueur(){
 		return this.listeJoueur;
 	}
+	
+	/**
+	 * GETTER permettant de retourner la taille du jeu de carted d'une partie 
+	 * @return la taille du jeu de cartes
+	 */
 	public int getTailleJeuCarte() {
 		return tailleJeuCarte;
 		}
