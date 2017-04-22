@@ -29,7 +29,7 @@ public class Main {
 	}
 	
 	/**
-	 * GETTER permettant de récupérer les cartes dans la main d'un joueur
+	 * GETTER permettant de rÃ©cupÃ©rer les cartes dans la main d'un joueur
 	 * @return Les cartes dans la main du joueur
 	 */
 	public ArrayDeque<Carte> getLotDeCarte(){
