@@ -5,30 +5,27 @@
 public class Carte{
 	
 	
-	/**
-	*
-	*/
-	private static char[] couleurs = { 'K', 'C', 'P', 'T' };
 	
 	
 	
 	/**
-	*
+	* Valeur de la carte
 	*/
 	private int hauteur;
 	
 	/**
-	*
+	* Fichier contenant la représentation graphique de la carte
 	*/
 	private String nomFichier;
 	
 	/**
-	*
+	* Couleur de la carte, elle peut être (K,C,P ou T)
+	
 	*/
 	private char couleur;
 	
 	/**
-	*
+	* Symbole de la carte à l'affichage du toString, il dépend de la hauteur
 	*/
 	private String symbole;
 	
@@ -87,7 +84,9 @@ public class Carte{
 		
 		}
 	
-	
+	/**
+	* @return la hauteur de la carte
+	*/
 	public int getHauteur() {
 		return hauteur;
 		}
@@ -96,7 +95,7 @@ public class Carte{
 	
 	
 	/**
-	* @return
+	* @return la représentation graphique de la carte
 	*/
 	public String getNomFichier() {
 		// TODO implement here
@@ -119,8 +118,9 @@ public class Carte{
 	* @return true si couleur vrai et false sinon
 	*/
 	public boolean couleurValide(char c){
-		for(int i=0;i<Carte.couleurs.length;i++){
-			if(Carte.couleurs[i]==c){
+		char[] couleurs = { 'K', 'C', 'P', 'T' };
+		for(int i=0;i<couleurs.length;i++){
+			if(couleurs[i]==c){
 				return true;
 				}
 			}
@@ -131,7 +131,7 @@ public class Carte{
 	
 	/* (non-Javadoc)
 	* @see java.lang.Object#equals(java.lang.Object)
-	* test si deux cartes ont la même hauteur
+	* test si deux cartes ont la mÃªme hauteur
 	*/
 	public boolean equals(Object o){
 		if(! (o instanceof Carte)) return false;
@@ -142,7 +142,7 @@ public class Carte{
 		return false;
 		}
 	/*
-	 * M�thode permettant de comparer la valeur de 2 cartes
+	 * Méthode permettant de comparer la valeur de 2 cartes
 	 */
 	public int compareTo(Carte c) {
 		if(this.getHauteur() < c.getHauteur()) return -1;
