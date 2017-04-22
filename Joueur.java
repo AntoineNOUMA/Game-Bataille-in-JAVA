@@ -33,14 +33,14 @@ public class Joueur {
 	}
 	
 	/**
-	* Getters permettant de récupérer l'id d'un joueur
+	* Getters permettant de rÃ©cupÃ©rer l'id d'un joueur
 	* */
 	public int getIdJoueur(){
 		return this.idJoueur;
 	}
 	
 	/**
-	 * GETTER permettant de récupérer la main d'un joueur
+	 * GETTER permettant de rÃ©cupÃ©rer la main d'un joueur
 	 * @return la main du joueur
 	 */
 	public Main getMain(){
@@ -48,8 +48,8 @@ public class Joueur {
 	}
 	
 	/**
-	 * Méthode comparant les joueurs en fonction de leur id 
-	 * @return boolean joueurs sont les mêmes
+	 * MÃ©thode comparant les joueurs en fonction de leur id 
+	 * @return boolean joueurs sont les mÃªmes
 	 */
 	
 	public int compareIdJoueur(Joueur j){
@@ -61,7 +61,7 @@ public class Joueur {
 	}
 	
 	/**
-	* Méthode permettat de poser une carte, la carte est enlevée de la main pour être posé sur la plateau individuel
+	* MÃ©thode permettant de poser une carte, la carte est enlevÃ©e de la main pour Ãªtre posÃ© sur la plateau individuel
 	*/
 	public void poserCarte()
 	{
@@ -75,7 +75,7 @@ public class Joueur {
 	}
 	
 	/**
-	 * Méthode permettant de poser une carte de la main du joueur vers la levée Générale du plateau (règle du jeu lorsqu'il y a une bataille entre joueurs)
+	 * MÃ©thode permettant de poser une carte de la main du joueur vers la levÃ©e GÃ©nÃ©rale du plateau (rÃ¨gle du jeu lorsqu'il y a une bataille entre joueurs)
 	 * @param p partie en cours
 	 */
 	public void poserCarteVersLeveeAdditionne(Partie p){
@@ -102,11 +102,10 @@ public class Joueur {
 		return false;
 		}
 	
-	public void partieGagne()
-	{
-		// TODO implement here
-		}
-	
+	/**
+	 * GETTER permettant de rÃ©cupÃ©rer le nom du joueur
+	 * @return la nom du joueur
+	 */
 	public String getPseudo() {
 		return pseudo;
 		}
@@ -119,7 +118,10 @@ public class Joueur {
 		s+= "\n" + this.main.toString();
 		return s;
 		}
-	
+	/**
+	 * GETTER permettant de rÃ©cupÃ©rer le plateau individuel du joueur
+	 * @return le plateau
+	 */
 	public PlateauIndividuel getMonPlateau() {
 		return this.monPlateau;
 		}
