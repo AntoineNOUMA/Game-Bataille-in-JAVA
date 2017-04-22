@@ -2,7 +2,7 @@
 import java.util.*;
 
 /**
-*
+* Classe de gestion du plateau individuel de chaque joueur
 */
 public class PlateauIndividuel {
 	
@@ -20,15 +20,21 @@ public class PlateauIndividuel {
 		this.cartePose=new Carte();
 		this.cartesBataille=new HashSet<Carte>();
 		}
-	
+	/**
+	 * @return la carte posée
+	 */
 	public Carte getCartePose() {
 		return this.cartePose;
 		}
-	
+	/**
+	 * @param c : modifie la carte posée par le joueur
+	 */
 	public void setCartePose(Carte c ) {
 		this.cartePose = c;
 		}
-	
+	/**
+	 * @return une collection de carte pour la bataille
+	 */
 	public HashSet<Carte> getCartesBataille() {
 		return this.cartesBataille;
 		}
