@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
-*
+* Classe de gestion du jeu de Carte
 */
 public class JeudeCartes {
 	
