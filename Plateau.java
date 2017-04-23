@@ -3,7 +3,7 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
-*
+* Classe de gestion du plateau du jeu
 */
 public class Plateau {
 	
