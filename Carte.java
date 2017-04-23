@@ -34,12 +34,8 @@ public class Carte{
 	* Constructeur
 	* @param s Symbole de la carte
 	* @param c Couleur de la carte
-	* @param nbJeuCarte : Nombre de paquets de cartes pour la partie
 	*/
-	/**
-	* 
-	* 
-	*/
+	
 	public Carte(int h, char c)throws Exception{
 		if(!this.couleurValide(c) || (h>14||h<0))
 		{
