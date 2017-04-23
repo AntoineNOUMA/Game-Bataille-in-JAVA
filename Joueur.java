@@ -2,13 +2,28 @@
 import java.util.*;
 
 /**
-*
+* Classe de gestion du joueur
 */
 public class Joueur {
 	
+	/**
+        * Nom du joueur
+        */
 	private String pseudo;
+	
+	/**
+        * Identifiant du joueur
+        */
 	private int idJoueur;
+	
+	/**
+        * Main du joueur
+        */
 	private Main main;
+	
+	/**
+        * Plateau individuel du joueur
+        */
 	private PlateauIndividuel monPlateau;
 	
 	/**
