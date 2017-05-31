@@ -1,3 +1,5 @@
+package jeu;
+
 import java.util.*;
 
 /**
@@ -74,7 +76,10 @@ public class JeudeCartes {
 		catch(Exception e){}
 		}
 	
-	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	
 	public String toString(){
 		return this.paquet.toString();

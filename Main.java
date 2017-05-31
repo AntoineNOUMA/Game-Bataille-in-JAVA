@@ -1,3 +1,5 @@
+package jeu;
+
 
 import java.util.*;
 
@@ -14,11 +16,14 @@ public class Main {
 	*/
 	private ArrayDeque<Carte> lotDeCarte;
 	
-	
+	/**
+	 * Constructeur de la classe Main
+	 */
 	public Main(){
 		this.lotDeCarte=new ArrayDeque<Carte>();
 		}
 	/**
+	 * Constructeur de la classe Main
 	* @param c Collection de cartes provenant du jeu de carte
 	*/
 	public Main(HashSet<Carte> c) {
@@ -36,7 +41,7 @@ public class Main {
 		return this.lotDeCarte;
 	}
 	
-	/**
+	/**Test si la le joueur a encore des Cartes
 	* @return true si la main est vide
 	*/
 	public boolean mainVide() {

@@ -1,3 +1,5 @@
+package jeu;
+
 
 import java.util.*;
 import java.util.Map.Entry;
@@ -5,7 +7,7 @@ import java.util.Map.Entry;
 /**
 * Classe de gestion du plateau du jeu
 */
-public class Plateau {
+public class Plateau extends Observable {
 	
 	
 	
@@ -57,28 +59,25 @@ public class Plateau {
 	}
 	
 	/**
-	 * Méthode permettant de dęclencher une bataille : 
-	 * Recherche les cartes identiques au sein des cartes posÃ©es par chaque joueur (preparationBataille)
-	 * Ajoute les cartes identiques au sein de la liste bataille
-	 * Retire la carte du joueur de la liste preparationBataille
-	 * Une fois toute la liste parcouru, si il y a des cartes identiques nous exÃ©cutons une bataille entre ces joueurs 
-	 * Le joueurs gagnant la partie remporte toute les cartes de la bataille, elles sont directement ajoutÃ© Ã  main
-	 * Dans tous les cas nous continuons Ã  parcourir la liste des joueurs, vÃ©rifiant si d'autres batailles sont possible,jusqu'Ã  Ã©puisement complet de la liste (preparationBataille)
-	 * Les cartes restantes, n'ayant pas participÃ© Ã  une bataille, sont restituÃ©s aux joueurs
+	 * Méthode permettant de dęclencher une bataille et de la g�rer. 
+	 * @param p partie en cours
 	 */
 	
 	public void bataille(Partie p) {
 		for(Joueur j : p.getListeJoueur() ){
 			this.listeJoueurBataille.add(j);
 		}
+		this.setChanged();
+		this.notifyObservers("debut_bataille");
 		
 		boolean tourGagne = false;
 		
 		while(this.getListeJoueurBataille().size()>1){
 			this.preparationBataille(); //Préparation a la bataille, pioche une carte de la main pour la mettre sur le plateau
 			//VERIFIER SI LITERATEUR FONCTIONNE DANS LETAT ACTUEL SINON DANS LA BOUCLE FOR REMPLACER this.levee.entrySet par une variable contenant cette liste
-			System.out.println("Préparation Bataille FINI !");
-			this.getLevee().forEach((k,v) -> System.out.println("Joueur: "+k.getPseudo()+" Carte:"+v.getHauteur()));
+			System.out.println("Preparation Bataille FINI !");
+			
+			this.getLevee().forEach((k,v) -> System.out.println("Joueur: "+k.getPseudo()+" Carte:"+v));
 			
 			/*
 			Iterator<Entry<Joueur, Carte>> it=this.levee.entrySet().iterator();
@@ -117,10 +116,12 @@ public class Plateau {
 			}
 			*/
 			
-			System.out.println("Liste Joueur Bataille après Test Filtrage Bataille : \n");
+			System.out.println();
+			System.out.println("Liste Joueur en Bataille : \n");
 			for(Joueur j : this.getListeJoueurBataille()){
 				System.out.println(j.getPseudo());
 			}
+			System.out.println();
 			
 			if(this.getListeJoueurBataille().size()==1){ //nous avons un gagnant
 				
@@ -141,7 +142,7 @@ public class Plateau {
 				while(itJoueurPerdu.hasNext()){
 					Joueur j = itJoueurPerdu.next();
 					System.out.println("Joueur en bataille :"+j.getPseudo() + " " + j.getMain());
-					System.out.println(this.getLeveeAdditionne() + " sa taille " + this.getLeveeAdditionne().size());
+					
 					if(!j.partiePerdue()){
 						j.poserCarteVersLeveeAdditionne(p);//chaque joueur doit poser une carte dans la levee globale (regle du jeu)
 					}
@@ -150,6 +151,8 @@ public class Plateau {
 					}
 					
 				}
+				this.setChanged();
+				this.notifyObservers("bataille");
 			}
 		
 		}
@@ -161,16 +164,18 @@ public class Plateau {
 				j.recupererCartes(this.getLeveeAdditionne());
 			}
 			this.getLeveeAdditionne().clear(); //supprime les cartes de la leveeAdditionne
+			this.setChanged();
+			this.notifyObservers("gagnant");
 		}
 		
 		for(Joueur j : this.getListeJoueurBataille()){
 			System.out.println(j.getPseudo() + " gagne la partie avec " + j.getMain().getLotDeCarte());
-			System.out.println("Ce qui fait "+ j.getMain().getLotDeCarte().size()+" cartes");
+			System.out.println("Ce qui fait "+ j.getMain().getLotDeCarte().size()+" cartes dans sa main.");
 
 		}
 		//Supprimer la liste de joueur bataille (la remettre à 0), vide 
 		this.getListeJoueurBataille().clear();
-		System.out.println("FIN BATAILLE");
+		System.out.println("FIN TOUR");
 	}
 	
 	/**
@@ -186,10 +191,12 @@ public class Plateau {
 			}
 			
 			}
+		this.setChanged();
+		this.notifyObservers("carte");
 	}
 	/**
 	 * Méthode permettant de supprimer un joueur de la liste des joueurs du tour 
-	 * @param j joueur à supprimer
+	 * @param j joueur a supprimer
 	 */
 	public void removeJoueurBataille(Joueur j){
 		Iterator <Joueur> ite =this.getListeJoueurBataille().iterator();
@@ -198,6 +205,8 @@ public class Plateau {
 				ite.remove();
 			}
 		}
+		this.setChanged();
+		this.notifyObservers("bataille");
 	}
 	
 	

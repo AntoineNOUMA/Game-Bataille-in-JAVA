@@ -1,10 +1,12 @@
+package jeu;
+
 
 import java.util.*;
 
 /**
 * Classe de gestion du joueur
 */
-public class Joueur {
+public class Joueur extends Observable {
 	
 	/**
         * Nom du joueur
@@ -28,6 +30,7 @@ public class Joueur {
 	
 	/**
 	* Constructeur Classe Joueur
+	* 
 	* */
 	public Joueur(String pseudo, int idJoueur, Main main)
 	{

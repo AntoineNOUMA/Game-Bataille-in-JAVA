@@ -1,3 +1,6 @@
+package jeu;
+
+
 
 /**
 *
@@ -44,9 +47,33 @@ public class Carte{
 			}
 		this.hauteur=h;
 		this.couleur=c;
+		
+		if(this.couleur==('K')){
+			this.nomFichier=new String("carreau");
+		}
+		
+		if(this.couleur==('C')){
+			this.nomFichier=new String("coeur");
+		}
+		
+		if(this.couleur==('P')){
+			this.nomFichier=new String("pique");
+		}
+		
+		if(this.couleur==('T')){
+			this.nomFichier=new String("trefle");
+		}
+		
+		if(this.hauteur>=10){
+			this.nomFichier+=("_"+this.hauteur+".GIF");
+		}
+		
+		else{
+			this.nomFichier+=("_0"+this.hauteur+".GIF");
+		}
 		}
 	/**
-	 * CrÃ©er une carte nulle
+	 * Créer une carte nulle (permet d'éviter et de controler l'ajout de carte du Plateau vers la Main lorsque le joueur n'a plus de carte)
 	 */
 	public Carte(){
 		this.hauteur=0;
@@ -54,6 +81,7 @@ public class Carte{
 	}
 	
 	/**
+	 * Méthode permet de récupérer le symbole d'une carte
 	* @return symbole - Renvoi le symbole de la carte
 	*/
 	public String getSymbole() {
@@ -86,6 +114,7 @@ public class Carte{
 		}
 	
 	/**
+	 * Getter de la hauteur de la carte(sa puissance)
 	* @return la hauteur de la carte
 	*/
 	public int getHauteur() {
@@ -96,16 +125,17 @@ public class Carte{
 	
 	
 	/**
+	 * Getter du nom du fichier contenant l'image de la carte
 	* @return la reprÃ©sentation graphique de la carte
 	*/
 	public String getNomFichier() {
-		// TODO implement here
 		return this.nomFichier;
-		}
+	}
 	
 	
-	/* (non-Javadoc)
+	/** toString de la Carte 
 	* @see java.lang.Object#toString()
+	* @return le symbole de la carte et sa couleur
 	*/
 	public String toString(){
 		String s;
@@ -115,6 +145,7 @@ public class Carte{
 	
 	
 	/**
+	 * Méthode permettant de controler si la couleur de la carte est valide
 	* @param c couleur de la carte
 	* @return true si couleur vrai et false sinon
 	*/
@@ -126,13 +157,13 @@ public class Carte{
 				}
 			}
 		return false;
-		}
+	}
 	
 	
-	
-	/* (non-Javadoc)
+	/** equals de Carte
 	* @see java.lang.Object#equals(java.lang.Object)
 	* test si deux cartes ont la mÃƒÂªme hauteur
+	* @return true les cartes ont la même hauteur
 	*/
 	public boolean equals(Object o){
 		if(! (o instanceof Carte)) return false;
@@ -142,19 +173,13 @@ public class Carte{
 			}
 		return false;
 		}
-	/*
-	 * MÃ©thode permettant de comparer la valeur de 2 cartes
+	/**compareTO de Carte,
+	 * compare la hauteur de la carte
+	 * @return -1 la carte comparé est supérieur 0 les cartes ont même puissance
 	 */
 	public int compareTo(Carte c) {
 		if(this.getHauteur() < c.getHauteur()) return -1;
 		if(this.getHauteur() == c.getHauteur()) return 0;
 		return 1;
 		}
-	
-	
-	
-	public static void main (String[] args)
-	{
-		
-	}
 }
