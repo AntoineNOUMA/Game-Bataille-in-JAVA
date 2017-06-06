@@ -237,11 +237,21 @@ public class Partie extends Observable {
 		}
 	}
 	
+	public void preparationBataille(){
+		if(!this.finPartie()){
+			this.setChanged();
+			this.notifyObservers(this);
+			this.getPlateauPartie().preparationBatailleGraphique(this);
+			}
+			this.setChanged();
+			this.notifyObservers(this);
+	}
+	
 	public void lancementPartieGraphique(){
 		if(!this.finPartie()){
 		this.setChanged();
 		this.notifyObservers(this);
-		this.getPlateauPartie().bataille(this);
+		this.getPlateauPartie().batailleGraphique(this);
 		this.joueurPerdu();
 		}
 		this.setChanged();

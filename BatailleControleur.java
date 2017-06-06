@@ -31,6 +31,10 @@ public HashMap<Joueur,Carte> getLevee(){
 	return this.p.getPlateauPartie().getLevee();
 }
 
+public void prepBataille(){
+	this.p.preparationBataille();
+}
+
 public void nextTurn(){
 	this.p.lancementPartieGraphique();
 }
