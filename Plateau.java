@@ -182,7 +182,7 @@ public class Plateau extends Observable {
 		
 		boolean tourGagne = false;
 		
-		while(this.getListeJoueurBataille().size()>1){
+		
 						//VERIFIER SI LITERATEUR FONCTIONNE DANS LETAT ACTUEL SINON DANS LA BOUCLE FOR REMPLACER this.levee.entrySet par une variable contenant cette liste
 			System.out.println("Preparation Bataille FINI !");
 			
@@ -237,7 +237,7 @@ public class Plateau extends Observable {
 				this.notifyObservers("bataille");
 			}
 		
-		}
+		
 		
 		
 		if(tourGagne==true){

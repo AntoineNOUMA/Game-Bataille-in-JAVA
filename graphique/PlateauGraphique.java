@@ -3,6 +3,7 @@ package graphique;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -60,7 +61,9 @@ public class PlateauGraphique extends JFrame{
 		//GridLayout g =new GridLayout(1,1);
 		this.plateau.setLayout(new FlowLayout());
 		this.cartes=new CartesBataille();
-		this.plateau.add(this.cartes);
+
+		this.cartes.setSize((int)this.cartes.getSize().getWidth()/2,(int)this.cartes.getSize().getHeight()/2);
+		this.plateau.add(this.cartes,SwingConstants.CENTER);
 	}
 	
 	public void initPlateauNord(){
@@ -96,6 +99,7 @@ public class PlateauGraphique extends JFrame{
 	/************* inner classe pour le Graphique	****************/
 	class BoutonPartie implements ActionListener{
 		int type;
+		int compteur=0;
 		
 		public BoutonPartie(int t){
 			this.type=t;
@@ -106,7 +110,16 @@ public class PlateauGraphique extends JFrame{
 				PlateauGraphique.this.dispose();
 			}
 			else{
-				PlateauGraphique.this.bc.nextTurn();
+				if(this.compteur==0){
+					PlateauGraphique.this.bc.prepBataille();
+					this.compteur++;
+				}
+				else{
+					if(this.compteur==1){
+					PlateauGraphique.this.bc.nextTurn();
+					this.compteur=0;
+					}
+				}
 			}
 			
 		}
@@ -202,20 +215,23 @@ public class PlateauGraphique extends JFrame{
 	public void modifCartePlateau(String s){
 		if(s.equals("carte")){
 		this.removeAll();
-		String chemin="C:/Users/DR/workspace/bataille/src/graphique/cartes/";
+		String chemin="cartes/";
 		for (Map.Entry<Joueur, Carte> entry : PlateauGraphique.this.bc.getLevee().entrySet()) {
 			JPanel gridCartes=new JPanel();
-			gridCartes.setLayout(new GridLayout(2,1,0,0));
-			LabelImage labCentre =new LabelImage(chemin+entry.getValue().getNomFichier());
+			gridCartes.setLayout(new FlowLayout());
+			LabelImage labCentre=new LabelImage(chemin+entry.getValue().getNomFichier());
+			labCentre.setSize((int)PlateauGraphique.this.plateau.getSize().getWidth()/2,(int) PlateauGraphique.this.getSize().getHeight()/2);
 			System.out.println(chemin+entry.getValue().getNomFichier()+"\n"+entry.getKey().getPseudo());
 			/*labCentre.setHorizontalAlignment(JLabel.CENTER);
 		    labCentre.setVerticalAlignment(JLabel.CENTER);*/
+			gridCartes.add(new JLabel(entry.getKey().getPseudo()));
 		    gridCartes.add(labCentre);
-		    gridCartes.add(new JLabel(entry.getKey().getPseudo()));
+		   
+		    System.out.println("§§§§§§§§§ TEST RECUP NOM JOUEUR §§§§§§§"+entry.getKey().getPseudo());
 		    this.add(gridCartes);
 		}
 		this.validate();
-		this.repaint();
+		//this.repaint();
 		}
 		//this.getLevee().forEach((k,v) -> System.out.println("Joueur: "+k.getPseudo()+" Carte:"+v));
 	}

@@ -26,12 +26,14 @@ public class LabelImage extends JLabel{
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
 		// au cas où 
-		if (this.im!=null)	{
+		/*if (this.im!=null)	{
 			// calcul des dimensions du LabelImage
-			int hauteurLabel= this.getHeight();
-			int largeurLabel = this.getWidth(); 
+			int hauteurLabel= (this.getHeight())/4;
+			int largeurLabel = (this.getWidth())/4; 
+			
 			// on redimensionne l'image à la dimension du label lui-même
 			g.drawImage(this.im, 0, 0, largeurLabel, hauteurLabel, this);
 		}
+		*/
 	}
 }	// fin de LabelImage*/
