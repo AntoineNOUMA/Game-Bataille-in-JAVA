@@ -178,10 +178,111 @@ public class Plateau extends Observable {
 		System.out.println("FIN TOUR");
 	}
 	
+	public void batailleGraphique(Partie p) {
+		
+		boolean tourGagne = false;
+		
+		while(this.getListeJoueurBataille().size()>1){
+						//VERIFIER SI LITERATEUR FONCTIONNE DANS LETAT ACTUEL SINON DANS LA BOUCLE FOR REMPLACER this.levee.entrySet par une variable contenant cette liste
+			System.out.println("Preparation Bataille FINI !");
+			
+			this.getLevee().forEach((k,v) -> System.out.println("Joueur: "+k.getPseudo()+" Carte:"+v));
+			
+			
+			for (Map.Entry<Joueur, Carte> entry1 : this.getLevee().entrySet()) {
+				for (Map.Entry<Joueur, Carte> entry2 : this.getLevee().entrySet()){
+					if(entry1.getValue().compareTo(entry2.getValue())==1){
+						this.removeJoueurBataille(entry2.getKey());
+					}
+				}
+			}
+			
+			
+			System.out.println();
+			System.out.println("Liste Joueur en Bataille : \n");
+			for(Joueur j : this.getListeJoueurBataille()){
+				System.out.println(j.getPseudo());
+			}
+			System.out.println();
+			
+			if(this.getListeJoueurBataille().size()==1){ //nous avons un gagnant
+				
+				tourGagne=true;
+				
+			}
+			
+			if(this.getLevee().size()>0){ //rajoute toute les cartes de la levée à la levée gloabale 
+				Iterator <Entry<Joueur,Carte>> itCarteLevee= this.getLevee().entrySet().iterator();
+				while(itCarteLevee.hasNext()){
+					this.getLeveeAdditionne().add(itCarteLevee.next().getValue()); //ajoute la carte à la levée globale
+					itCarteLevee.remove();// retire la carte de la levée de la bataille
+				}
+			}
+			
+			if(tourGagne==false){ //vérifie quels sont les joueurs ayant des cartes égales et prépare la nouvelle bataille
+				Iterator <Joueur> itJoueurPerdu=this.getListeJoueurBataille().iterator();
+				while(itJoueurPerdu.hasNext()){
+					Joueur j = itJoueurPerdu.next();
+					System.out.println("Joueur en bataille :"+j.getPseudo() + " " + j.getMain());
+					
+					if(!j.partiePerdue()){
+						j.poserCarteVersLeveeAdditionne(p);//chaque joueur doit poser une carte dans la levee globale (regle du jeu)
+					}
+					else{
+						itJoueurPerdu.remove();
+					}
+					
+				}
+				this.setChanged();
+				this.notifyObservers("bataille");
+			}
+		
+		}
+		
+		
+		if(tourGagne==true){
+			for(Joueur j : this.getListeJoueurBataille()){
+				//ajouter les cartes des leveeAdditionne au joueur gagnant en principe il n'y a plus de carte dans la levee(tous à été transferré à la levéeAdditionnée)
+				j.recupererCartes(this.getLeveeAdditionne());
+			}
+			this.getLeveeAdditionne().clear(); //supprime les cartes de la leveeAdditionne
+			this.setChanged();
+			this.notifyObservers("gagnant");
+		}
+		
+		for(Joueur j : this.getListeJoueurBataille()){
+			System.out.println(j.getPseudo() + " gagne la partie avec " + j.getMain().getLotDeCarte());
+			System.out.println("Ce qui fait "+ j.getMain().getLotDeCarte().size()+" cartes dans sa main.");
+
+		}
+		//Supprimer la liste de joueur bataille (la remettre à 0), vide 
+		this.getListeJoueurBataille().clear();
+		System.out.println("FIN TOUR");
+	}
 	/**
 	 * Méthode permettant de préparer la bataille, récupération des cartes de la main de chaque joueur pour l'ajouter a chaque plateau individuel
 	 */
 	public void preparationBataille() {
+		for(Joueur j : this.getListeJoueurBataille()){
+			j.poserCarte(); //prend une carte de la main et la pose sur le plateau individuel
+			if(j.getMonPlateau().getCartePose().getHauteur()!=0){ //
+				this.levee.put(j, j.getMonPlateau().getCartePose()); //transfert la carte du plateau indivduel au plateau collectif
+				//!!! PENSER A SUPPRIMER LA CARTE SI ELLE NA PAS ETE ENLEVE DAS LA METHODE poserCarte()
+				j.getMonPlateau().setCartePose(new Carte());//VERIFIER PERTINENCE !!! Une fois la carte mis dans le Plateau de la partie, la carte dans le plateau Individuel est remplacÃ© par une carte nulle  
+			}
+			
+			}
+		this.setChanged();
+		this.notifyObservers("carte");
+	}
+	
+	public void preparationBatailleGraphique(Partie p){
+		for(Joueur j : p.getListeJoueur() ){
+			this.listeJoueurBataille.add(j);
+		}
+		this.setChanged();
+		this.notifyObservers("debut_bataille");
+		
 		for(Joueur j : this.getListeJoueurBataille()){
 			j.poserCarte(); //prend une carte de la main et la pose sur le plateau individuel
 			if(j.getMonPlateau().getCartePose().getHauteur()!=0){ //
